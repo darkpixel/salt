@@ -247,8 +247,8 @@ def list_(tgt, minion_id=None):
         opts = __opts__
     matchers = salt.loader.matchers(opts)
     try:
-        return matchers['list_match.match'](tgt, opts=__opts__)
-    except Exception as exc:
+        return matchers["list_match.match"](tgt, opts=opts)
+    except Exception as exc:  # pylint: disable=broad-except
         log.exception(exc)
         return False
 
@@ -277,8 +277,8 @@ def pcre(tgt, minion_id=None):
         opts = __opts__
     matchers = salt.loader.matchers(opts)
     try:
-        return matchers['pcre_match.match'](tgt, opts=__opts__)
-    except Exception as exc:
+        return matchers["pcre_match.match"](tgt, opts=opts)
+    except Exception as exc:  # pylint: disable=broad-except
         log.exception(exc)
         return False
 
@@ -308,8 +308,8 @@ def glob(tgt, minion_id=None):
     matchers = salt.loader.matchers(opts)
 
     try:
-        return matchers['glob_match.match'](tgt, opts=__opts__)
-    except Exception as exc:
+        return matchers["glob_match.match"](tgt, opts=opts)
+    except Exception as exc:  # pylint: disable=broad-except
         log.exception(exc)
         return False
 
